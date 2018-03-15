@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+</head>
+
+<body>
+	<!-- listen key use keyCode-->
+	<!--<div id="app">
+		<input v-model="input" @keydown="keydown"/>
+		<ul>
+			<li v-for="item in list">{{item}}</li>
+		</ul>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				input: '',
+				list:[],
+			},
+			methods:{
+				keydown(evt){
+					if(evt.keyCode === 13){	//enter
+						this.list.push(this.input);
+						this.input = '';
+					}
+				}
+			}
+		});
+	</script>-->
+
+	<!-- listen key-->
+	<div id="app">
+		<input v-model="input" @keydown.enter="enter"/>
+		<ul>
+			<li v-for="item in list">{{item}}</li>
+		</ul>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				input: '',
+				list:[],
+			},
+			methods:{
+				enter(){
+					this.list.push(this.input);
+					this.input = '';
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

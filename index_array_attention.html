@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+</head>
+
+<body>
+	<!-- 修改陣列或物件的注意事項 -->
+	<!--<div id="app">
+		<ul>
+			<li v-for="num in nums">{{num}}</li>
+		</ul>
+		<button @click="action_push">push</button>
+		<button @click="action_pop">pop</button>
+		<button @click="action_shift">shift</button>
+		<button @click="action_unshift">unshift</button>
+		<button @click="action_splice">splice</button>
+		<button @click="action_sort">sort</button>
+		<button @click="action_reverse">reverse</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				nums: [1,2,3,4,5,0],
+			},
+			methods:{
+				//VUE 只偵聽以下 array 操作
+				action_push(){
+					this.nums.push(this.nums.length+1);
+				},
+				action_pop(){
+					this.nums.pop();
+				},
+				action_shift(){
+					this.nums.shift();//往左SHIFT 第一個值會被丟掉
+				},
+				action_unshift(){
+					this.nums.unshift(0);//往右SHIFT 由前面塞入0
+				},
+				action_splice(){
+					//splice(index,length,data)
+					//this.nums.splice(2,1);//在陣列index 2的位置 刪除1個值
+					this.nums.splice(2,1,9,8,7);//在陣列index 2的位置 刪除1個值 塞入9,8,7 的值
+				},
+				action_sort(){
+					this.nums.sort();//依序排列
+				},
+				action_reverse(){
+					this.nums.reverse();//反轉
+				},
+			}
+		});
+	</script>-->
+
+	<!-- 修改陣列或物件的注意事項 filter-->
+	<!--<div id="app">
+		<ul>
+			<li v-for="num in nums">{{num}}</li>
+		</ul>
+		<button @click="action">filter</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				nums: [1,2,3,4,5,0],
+			},
+			methods:{
+				action(){
+					this.nums = this.nums.filter(elm => elm%2 === 0);
+				},
+			}
+		});
+	</script>-->
+
+	<!-- 修改陣列或物件的注意事項 VUE 無法偵聽-->
+	<!--<div id="app">
+		<ul>
+			<li v-for="num in nums">{{num}}</li>
+		</ul>
+		<button @click="action">change</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				nums: [1,2,3,4,5,0],
+			},
+			methods:{
+				action(){
+					//this.nums[2] = 10;//透過索引值修改 VUE 無法偵聽
+					//this.nums.splice(2,1,10);//須使用這樣
+
+					//this.nums.length = 3;// VUE 無法偵聽
+					//this.nums.splice(3);//須使用這樣
+					this.nums = this.nums.slice(0,3);//或使用這樣
+				},
+			}
+		});
+	</script>-->
+
+	<!-- 修改陣列或物件的注意事項 物件轉換-->
+	<div id="app">
+		<ul>
+			<li v-for="(num,key) in nums">{{key}}:{{num}}</li>
+		</ul>
+		<button @click="action">change</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				nums: {
+					x:10,
+					y:20
+				},
+			},
+			methods:{
+				action(){
+					//this.nums.x= 30;//OK
+
+					//增加物件data
+					//this.nums.z= 30;// VUE 無法偵聽
+					//this.$set(this.nums, 'z', 30);//須使用這樣
+					//vm.$set(this.nums, 'z', 30);//或使用這樣
+					Vue.set(this.nums, 'z', 30);//或使用這樣 不加$
+				},
+			}
+		});
+	</script>
+</body>
+
+</html>

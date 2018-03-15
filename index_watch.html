@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+</head>
+
+<body>
+	<!--<div id="app">
+		<input v-model="value"/>
+		<span>{{valuex2}}</span>
+	</div>
+	<script>
+		const vm = new Vue({
+			el:'#app',
+			data: {
+				value: 0,
+			},
+			methods:{},
+			computed:{
+				valuex2(){
+					return parseInt(this.value, 10)*2;
+				}
+			},
+			watch: {
+				//watch 涵式 宣告時跟資料 命名相同
+				//value(val, oldval){
+				//	console.log(`${oldval} -> ${val}`);
+				//}
+				valuex2(val, oldval){
+					console.log(`${oldval} -> ${val}`);
+				}
+			}
+		});
+
+	</script>-->
+
+
+
+	<!--<div id="app">
+		<input v-model="input.a" />
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				input:{
+					a:'',
+				}
+			},
+			watch: {
+				//watch 物件宣告
+				input: {
+					handler(val,oldval){ //必須包涵 handler 涵式
+						console.log(val === oldval);
+						console.log(`${oldval.a} -> ${val.a}`);
+					},
+					//immediate:true,
+					deep: true, //用來watch 物件資料裡面的值 需使用
+				}
+			}
+		});
+	</script>-->
+
+	<!-- 以下建議使用 computed -->
+	<div id="app">
+		<input v-model="a" />+
+		<input v-model="b" />=
+		<input v-model="c" />
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				a: 0,
+				b: 0,
+				//c :0 //for watch
+			},
+			computed:{
+				c(){
+					return parseInt(this.a, 10) +  parseInt(this.b, 10);
+				}
+			},
+			/*watch: {
+				//watch 物件宣告
+				a(val){	//val 是改變後的新值
+					this.c = parseInt(val, 10) +  parseInt(this.b, 10);
+				},
+				b(val){
+					this.c = parseInt(val, 10) +  parseInt(this.a, 10);
+				}
+			}*/
+		});
+	</script>
+</body>
+
+</html>

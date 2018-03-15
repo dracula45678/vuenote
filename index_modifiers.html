@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+	<style>
+		.box {
+			display: inline-block;
+			min-width: 80px;
+			min-height: 80px;
+			padding: 10px;
+			border: 2px solid #ff0000;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- listen key detail A(1)-->
+	<!--<div id="app">
+		<a href="https://google.com" target="_blank" @click="linkClick">google</a>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+
+			},
+			methods:{
+				linkClick(evt){
+					evt.preventDefault();
+					alert("Don't");
+				}
+			}
+		});
+	</script>-->
+
+	<!-- listen key detail A(2)-->
+	<!--<div id="app">
+		<a href="https://google.com" target="_blank" @click.prevent="linkClick">google</a>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+
+			},
+			methods:{
+				linkClick(evt){
+					alert("Don't");
+				}
+			}
+		});
+	</script>-->
+
+	<!-- listen key detail B(1)-->
+	<!--<div id="app">
+		<div class="box" @click="setC">
+			<div class="box" @click="setB">
+				<div class="box" @click="setA">
+	
+				</div>
+			</div>
+		</div>
+		<h1>{{msg}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				msg: '',
+			},
+			methods:{
+				setA(evt){
+					evt.stopPropagation();
+					this.msg = 'A';
+				},
+				setB(evt){
+					evt.stopPropagation();
+					this.msg = 'B';
+				},
+				setC(evt){
+					evt.stopPropagation();
+					this.msg = 'C';
+				},
+			}
+		});
+	</script>-->
+
+	<!-- listen key detail B(2)-->
+	<!--<div id="app">
+		<div class="box" @click.stop="msg='C'">
+			<div class="box" @click.stop="msg='B'">
+				<div class="box" @click.stop="msg='A'">
+	
+				</div>
+			</div>
+		</div>
+		<h1>{{msg}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				msg: '',
+			},
+			methods:{
+
+			}
+		});
+	</script>-->
+
+	<!-- listen key detail B(3)-->
+	<!--<div id="app">
+		<div class="box" @click.self="msg='C'">
+			<div class="box" @click.self="msg='B'">
+				<div class="box" @click.self="msg='A'">
+	
+				</div>
+			</div>
+		</div>
+		<h1>{{msg}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				msg: '',
+			},
+			methods:{
+
+			}
+		});
+	</script>-->
+
+	<!-- listen key detail "once" -->
+	<!--<div id="app">
+		<h1>{{count}}</h1>
+		<button @click.once="count+=1">+1</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				count: 0,
+			},
+			methods:{
+
+			}
+		});
+	</script>-->
+
+
+	<div id="app">
+		<!--<input @keydown.a.prevent="enter" v-model="input"/>-->
+		<input @keydown.13="enter" v-model="input"/><!-- use keycode -->
+		<ul>
+			<li v-for="item in list">{{item}}</li>
+		</ul>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				input: '',
+				list: [],
+			},
+			methods: {
+				enter(evt) {
+					this.list.push(this.input);
+					this.input = '';
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

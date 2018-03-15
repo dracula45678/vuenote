@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+	<style>
+		#app {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<!--使用物件 -->
+	<!--<div id="app">
+		<h1 :style="h1Style">Hello</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				//h1Style: 'color:red',
+				h1Style:{
+					color: 'green',
+				}
+			},
+		});
+	</script>-->
+
+	<!--使用array -->
+	<!--<div id="app">
+		<h1 :style="h1Style">Hello</h1>
+	</div>
+	<script>
+		const commmonHeadStyle={
+			fontSize: '20px',//不能寫font-size 要把 -s 寫成大寫S
+		};
+		const greeWord={
+			color: 'green'
+		};
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				h1Style:[
+					commmonHeadStyle,
+					greeWord
+				]
+			},
+		});
+	</script>-->
+
+	<!--使用 method resize -->
+	<!--<div id="app">
+		<h1 :style="h1Style">Hello</h1>
+		<button @click="shrink">OK</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				h1Style:{
+					fontSize: '40px',
+				}
+			},
+			methods:{
+				shrink(){
+					const size = parseInt(this.h1Style.fontSize.replace('px'),10);
+					this.h1Style.fontSize = `${size-1}px`;
+				}
+			}
+		});
+	</script>-->
+
+	<!--使用 computed resize -->
+	<div id="app">
+		<h1 :style="h1Style">Hello</h1>
+		<button @click="shrink">OK</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				size: 40
+			},
+			computed: {
+				h1Style(){
+					return {
+						fontSize: `${this.size}px`
+					}
+				}
+			},
+			methods:{
+				shrink(){
+					this.size--;
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

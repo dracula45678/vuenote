@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+</head>
+
+<body>
+	<!-- use v-once -->
+	<!--<div id="app">
+		<span v-once>{{message}}</span>
+		</br>
+		<span>{{message}}</span>
+		<button v-on:click="append">Append</button>
+	</div>
+
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				message:'Hello'
+			},
+			methods:{
+				append(){
+					this.message += '!';
+				}
+			}
+		});
+	</script>-->
+
+	<!-- use v-html -->
+	<div id="app">
+		<span v-html="message"></span>
+	</div>
+
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				message:'<h1>hello</h1>'
+			}
+		});
+	</script>
+</body>
+
+</html>

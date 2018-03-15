@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<input v-model="value"/>
+		<span>{{valuex2}}</span>
+	</div>
+	<script>
+		const vm = new Vue({
+			beforeCreate(){
+				// server side rendering
+			},
+			created(){
+				// server side rendering
+			},
+			beforeMount(){
+
+			},
+			mounted(){
+				//可用來做初始 AJAX 載入
+				//偵聽window
+			},
+			beforeUpdate(){
+
+			},
+			updated(){
+
+			},
+			beforeDestroy(){
+				//移除偵聽
+			},
+			destroyed(){
+
+			}
+		});
+	</script>
+</body>
+
+</html>

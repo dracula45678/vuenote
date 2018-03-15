@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+	<style>
+	</style>
+</head>
+
+<body>
+	<!--<div id="app">
+		<input type="radio" id="r1" value="man" v-model="gender"/>
+		<label for="r1">man</label>
+		<input type="radio" id="r2" value="woman" v-model="gender"/>
+		<label for="r2">woman</label>
+
+		<h1>{{gender}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				gender: 'man',
+			},
+			methods: {
+				
+			}
+		});
+	</script>-->
+
+	<!-- 單選 -->
+	<!--<div id="app">
+		<input type="radio" id="r1" value="1" v-model="gender" />
+		<label for="r1">1</label>
+		<input type="radio" id="r2" value="2" v-model="gender" />
+		<label for="r2">2</label>
+		<input type="radio" id="r3" value="3" v-model="gender" />
+		<label for="r3">3</label>
+		<h1>{{gender}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				gender: '',
+			},
+			methods: {
+
+			}
+		});
+	</script>-->
+
+	<!-- 多選 -->
+	<div id="app">
+		<input type="radio" id="r1" :checked="male" @click="male=!male"/>
+		<label for="r1">1</label>
+		<input type="radio" id="r2" :checked="female" @click="female=!female" />
+		<label for="r2">2</label>
+		<input type="radio" id="r3" :checked="others" @click="others=!others" />
+		<label for="r3">3</label>
+		<h1>{{male}}</h1>
+		<h1>{{female}}</h1>
+		<h1>{{others}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				male: false,
+				female: false,
+				others: false
+			},
+			methods: {
+
+			}
+		});
+	</script>
+</body>
+
+</html>

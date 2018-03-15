@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<!--<div id="app">
+		<input type="checkbox" id="check" v-model="agree"/>
+		<label for="chk">Agree</label>
+		<h1>{{agree}}</h1>
+		<button @click="submit">Submit</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				agree: false,
+			},
+			methods: {
+				submit(){
+					if(this.agree !== true){
+						alert("please argee");
+						return;
+					}
+				}
+			}
+		});
+	</script>-->
+
+	<div id="app">
+		<input type="checkbox" id="chk1" value="1" v-model="times"/>
+		<label for="chk1">one</label>
+		<input type="checkbox" id="chk2" value="2" v-model="times"/>
+		<label for="chk2">two</label>
+		<input type="checkbox" id="chk3" value="3" v-model="times"/>
+		<label for="chk3">three</label>
+
+		<h1>{{times}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				times: [],
+			},
+			methods: {
+				submit(){
+					if(this.agree !== true){
+						alert("please argee");
+						return;
+					}
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

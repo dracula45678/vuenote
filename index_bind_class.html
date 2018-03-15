@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+	<style>
+		#app {
+			text-align: center;
+		}
+
+		.submit {
+			background-color: #28a745;
+			color: #ffffff;
+			border: none;
+			border-radius: 8px;
+			padding: 4px 8px;
+		}
+
+		.submit.disabled {
+			background-color: #aaaaaa;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 使用涵式方式回傳class -->
+	<!--<div id="app">
+		<input type="text" v-model="text"/>
+		<button v-bind:class="btnclass">Submit</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				text:'',
+			},
+			computed: {
+				btnclass(){
+					if(this.text.length === 0){
+						return 'submit disabled';
+					}
+					else{
+						return 'submit';
+					}
+				}
+			}
+		});
+	</script>-->
+
+	<!-- 使用array方式回傳class -->
+	<!--<div id="app">
+		<input type="text" v-model="text" />
+		<button v-bind:class="btnclass">Submit</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				text: '',
+				btnclass:[
+					'submit',
+					'disabled'
+				]
+			},
+		});
+	</script>-->
+
+	<!-- 使用物件方式回傳class -->
+	<div id="app">
+		<input type="text" v-model="text" />
+		<button v-bind:class="btnclass">Submit</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				text: '',
+			},
+			computed: {
+				btnclass() {
+					return {
+						submit: true,
+						disabled: this.text.length === 0
+					};
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

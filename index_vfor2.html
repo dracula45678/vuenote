@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+</head>
+
+<body>
+	<!-- 用 v-for 把一個物件轉換為一組元素 -->
+	<!--<div id="app">
+		<div v-for="value in me">{{value}}</div>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				me: {
+					name: 'YY123',
+					id: 'neil',
+					age: '18',
+					password: '1234'
+				},
+			},
+		});
+	</script>-->
+
+	<!-- 用 v-for 把一個物件轉換為一組元素 use key -->
+	<!--<div id="app">
+		<div v-for="(value, key) in me">{{key}}:{{value}}</div>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				me: {
+					name: 'YY123',
+					id: 'neil',
+					age: '18',
+					password: '1234'
+				},
+			},
+		});
+	</script>-->
+
+	<!-- 用 v-for 把一個物件轉換為一組元素 use key -->
+	<div id="app">
+		<div v-for="item in me">{{item.prop}}:{{item.value}}</div>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				me: [
+					{prop: 'name', value: 'YY123'},
+					{prop: 'id', value: 'neil'},
+					{prop: 'age', value: '18'},
+					{prop: 'password', value: '1234'},
+					{prop: 13, value:'a'},
+					{prop: 8, value:'b'},
+					{prop: 4, value:'c'}
+				],
+			},
+		});
+	</script>
+</body>
+
+</html>
