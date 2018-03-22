@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+	<style>
+	</style>
+</head>
+
+<body>
+	<!-- v-model 三種修飾符 (1)-->
+	<!--<div id="app">
+		<input type="text" v-model.lazy="msg">
+		<h1>{{msg}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				msg:'',
+			},
+			methods: {
+
+			}
+		});
+	</script>-->
+
+	<!-- v-model 三種修飾符 (2)-->
+	<!--<div id="app">
+		<input type="text" v-model.number="num">
+		<h1>{{num+1}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				num: 0,
+			},
+			methods: {
+
+			}
+		});
+	</script>-->
+
+	<!-- v-model 三種修飾符 (3) 前後去空白-->
+	<div id="app">
+		<input type="text" v-model.trim="text">
+		<h1>{{text}}</h1>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				text: '',
+			},
+			methods: {
+
+			}
+		});
+	</script>
+</body>
+
+</html>

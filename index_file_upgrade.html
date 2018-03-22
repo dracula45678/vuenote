@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+	<style>
+	</style>
+</head>
+
+<body>
+	<!-- 讀取image -->
+	<!--<div id="app">
+		<input type="file" @change="fileSelected">
+		<img v-if="image" :src="image" alt="" width="200">
+	</div>
+
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				image:'',
+			},
+			methods: {
+				fileSelected(evt){
+					const file = evt.target.files.item(0);
+					console.log(file);
+					const reader = new FileReader();
+					reader.addEventListener('load', this.imageLoader);
+					reader.readAsDataURL(file);
+				},
+				imageLoader(evt){
+					this.image = evt.target.result;
+				}
+			}
+		});
+	</script>-->
+
+	<!-- file upgrade -->
+	<div id="app">
+		<input type="file" @change="fileSelected">
+		<img v-if="image" :src="image" alt="" width="200">
+		<button @click="upload">upload</button>
+	</div>
+
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				image:'',
+			},
+			methods: {
+				fileSelected(evt){
+					const file = evt.target.files.item(0);
+					console.log(file);
+					const reader = new FileReader();
+					reader.addEventListener('load', this.imageLoader);
+					reader.readAsDataURL(file);
+				},
+				imageLoader(evt){
+					this.image = evt.target.result;
+				},
+				upload(){
+					/*
+					//看backend 規格上傳
+
+					//use form
+					const form = new FormData();
+					form.append(this.file, this.file.name);
+
+					//use post
+					axios.post('/upload',{image:this.image});
+					*/
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>
