@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+	<style>
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<todo-list></todo-list>
+	</div>
+	<script>
+		//上層往下傳資料用props
+		Vue.component('todo-item',{
+			props:['lable'],
+			template:`
+				<li>{{lable}}</li>
+			`,
+		});
+		//下層往上傳資料用$emit
+		Vue.component('todo-input',{
+			data(){
+				return{
+					text:'',
+				};
+			},
+			methods:{
+				submit(){
+					this.$emit('input_a', this.text);
+					this.text = '';
+				},
+			},
+			template:`
+				<form @submit.prevent="submit">
+					<input type="text" v-model="text" />
+					<button type="submit">submit</button>
+				</form>
+			`,
+		});
+
+		Vue.component('todo-list', {
+			data(){
+				return {
+					todos: ['a','b','c'],
+				};
+			},
+			methods: {
+				addTodo(text){
+					this.todos.push(text);
+				}
+			},
+			template: `	
+				<div>
+					<todo-input @input_a="addTodo"></todo-input>
+					<ul>
+						<todo-item v-for="todo in todos" :lable="todo"></todo-item>
+					</ul>
+				</div>
+			`,
+		});
+
+		new Vue({
+			el: '#app',
+		});
+
+	</script>
+</body>
+
+</html>

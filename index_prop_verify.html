@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.js"></script>
+	<style>
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<counter :start="5"></counter>
+	</div>
+	<script>
+		Vue.component('counter',{
+			props: {
+				start: {
+					type:Number,//指定成數字
+					default: 0,				
+					validator(value){//做檢查 在console中出現錯誤訊息
+						return value <= 10;
+					}
+				},
+			},
+			data(){
+				return {
+					count: this.start,
+				}
+			},
+			template:`
+			<div>
+			<h1>{{count}}</h1>
+			<button @click="count+=1">+</button>
+			</div>
+			`,
+		});
+		const vm = new Vue({
+			el: '#app',
+			data: {
+
+			},
+			methods: {
+
+			}
+		});
+	</script>
+</body>
+
+</html>

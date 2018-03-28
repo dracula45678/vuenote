@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js"></script>
+	<style>
+	</style>
+</head>
+
+<body>
+	<!-- 動態綁定 -->
+	<!--<div id="app">
+		<post v-for="text in posts" :text="text"></post>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				posts: ['hi','hihi','hihihi'],
+			},
+			methods: {
+
+			},
+			components: {
+				post:{
+					props:['text'],
+					template: '<div>{{text}}</div>'
+				}
+			}
+		});
+	</script>-->
+
+	<!-- 物件動態綁定 1 -->
+	<!--<div id="app">
+		<post v-for="post in posts" :text="post.text" :author="post.author"></post>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				posts: [{
+					text:'aaa',
+					author:'bbb',
+				},{
+					text:'ccc',
+					author:'ddd',
+				}],
+			},
+			methods: {
+
+			},
+			components: {
+				post:{
+					props:['author','text'],
+					template: `
+					<div>
+						{{author}} : {{text}}
+					</div>`,
+				}
+			}
+		});
+	</script>-->
+
+	<!-- 物件動態綁定 2 -->
+	<!--<div id="app">
+		<post v-for="post in posts" v-bind="post"></post>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				posts: [{
+					text: 'aaa',
+					author: 'bbb',
+				}, {
+					text: 'ccc',
+					author: 'ddd',
+				}],
+			},
+			methods: {
+
+			},
+			components: {
+				post: {
+					props: ['author', 'text'],
+					template: `
+						<div>
+							{{author}} : {{text}}
+						</div>`,
+				}
+			}
+		});
+	</script>-->
+
+	<!-- 動態綁定 可以是一個數值 也可以是一個變數 -->
+	<!-- <div id="app">
+		<count :number="1"></count>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+
+			},
+			methods: {
+
+			},
+			components: {
+				count: {
+					props:['number'],
+					template: `<div>{{number+1}}</div>`,
+				}
+			}
+		});
+	</script>-->
+
+	<!-- props 是單向數據流 上層會影響下層-->
+	<!--<div id="app">
+		<h1>{{count}}</h1>
+		<button @click="count+=1">+</button>
+
+		<counter :count="count"></counter>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				count: 10,
+			},
+			methods: {
+
+			},
+			components: {
+				counter: {
+					props: ['count'],
+					template: `<div>
+					<h2>{{count}}</h2>
+					<button @click="count+=1">+</button>
+					</div>`,
+				}
+			}
+		});
+	</script>-->
+
+	<!-- props 是單向數據流 不影響下層-->
+	<!--<div id="app">
+		<h1>{{count}}</h1>
+		<button @click="count+=1">+</button>
+
+		<counter :start="count"></counter>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				count: 10,
+			},
+			methods: {
+
+			},
+			components: {
+				counter: {
+					props: ['start'],
+					data(){
+						return {
+							count: this.start,
+						}
+					},
+					template: `<div>
+						<h2>{{count}}</h2>
+						<button @click="count+=1">+</button>
+						</div>`,
+				}
+			}
+		});
+	</script>-->
+
+	<!-- props 是單向數據流 上層會影響下層*2-->
+	<div id="app">
+		<h1>{{count}}</h1>
+		<button @click="count+=1">+</button>
+
+		<counter :count="count"></counter>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				count: 10,
+			},
+			methods: {
+
+			},
+			components: {
+				counter: {
+					props: ['count'],
+					computed:{
+						countDoubled(){
+							return this.count*2;
+						}
+					},
+					template: `<div>
+					<h2>{{countDoubled}}</h2>
+					</div>`,
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>
